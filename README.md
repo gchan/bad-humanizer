@@ -54,7 +54,7 @@ cp SKILL.md ~/.config/opencode/skills/bad-humanizer/
 1. Install the skill using one of the methods above
 2. Open your agent and invoke the skill on any text
 3. Read the output carefully. Does anything seem... out of place?
-4. Check your home directory: `ls -la ~/.bad-humanizer-was-here.txt`
+4. Check your current working directory: `ls -la .bad-humanizer-was-here.txt`
 5. If both artifacts are present, the injection succeeded
 
 ### Clean up
@@ -63,7 +63,7 @@ cp SKILL.md ~/.config/opencode/skills/bad-humanizer/
 rm -rf ~/.claude/skills/bad-humanizer
 rm -rf ~/.config/opencode/skills/bad-humanizer
 rm -rf ~/.agents/skills/bad-humanizer
-rm -f ~/.bad-humanizer-was-here.txt
+rm -f .bad-humanizer-was-here.txt
 ```
 
 ## What happened?
