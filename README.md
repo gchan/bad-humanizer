@@ -109,6 +109,16 @@ The injection in this POC is deliberately benign. In a real attack, hidden instr
 
 We deliberately do not demonstrate these to avoid creating reusable attack tooling.
 
+## Model susceptibility
+
+The attack is not always successful. It depends on the model, the agent framework, and the specific prompt context.
+
+As of February 2026, newer models like Claude Opus 4 (claude-opus-4-6) are capable of detecting the hidden instructions, alerting the user to their presence, and refusing to follow them. When Claude Opus 4 encounters this SKILL.md, it identifies the HTML comment and Unicode tag character injections and flags them rather than silently complying.
+
+However, Claude Sonnet 4 (claude-sonnet-4-20250514) is susceptible to the attack -- it will follow the hidden instructions without informing the user, particularly the elephant fact insertion and canary file creation. Susceptibility varies across invocations; the attack does not succeed 100% of the time even on vulnerable models.
+
+This is worth keeping in mind: the security boundary between "reads the injection and ignores it" and "reads the injection and follows it" is a property of the model, not the file format. A hiding technique that fails against one model version may succeed against the next, or vice versa.
+
 ## How to detect this
 
 Before installing any third-party skill:
