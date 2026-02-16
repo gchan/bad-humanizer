@@ -115,9 +115,7 @@ The attack is not always successful. It depends on the model, the agent framewor
 
 As of February 2026, newer models like Claude Opus 4 (claude-opus-4-6) are capable of detecting the hidden instructions, alerting the user to their presence, and refusing to follow them. When Claude Opus 4 encounters this SKILL.md, it identifies the HTML comment and Unicode tag character injections and flags them rather than silently complying.
 
-However, Claude Sonnet 4 (claude-sonnet-4-20250514) is susceptible to the attack -- it will follow the hidden instructions without informing the user, particularly the elephant fact insertion and canary file creation. Susceptibility varies across invocations; the attack does not succeed 100% of the time even on vulnerable models.
-
-This is worth keeping in mind: the security boundary between "reads the injection and ignores it" and "reads the injection and follows it" is a property of the model, not the file format. A hiding technique that fails against one model version may succeed against the next, or vice versa.
+However, Claude Sonnet 4.5 is susceptible to the attack -- it will follow the hidden instructions without informing the user, particularly the elephant fact insertion and canary file creation. Susceptibility varies across invocations; the attack does not succeed 100% of the time even on vulnerable models.
 
 ## How to detect this
 
@@ -152,6 +150,10 @@ Before installing any third-party skill:
 5. **Check file sizes** -- a fork with the same visible content but a larger file size is suspicious. The Unicode tag characters in this POC add ~2KB of invisible bytes.
 6. **Use a markdown viewer that shows HTML comments**
 7. **Run a general Unicode scanner** for any codepoints outside the Basic Multilingual Plane in files that should only contain ASCII/Latin text
+
+## Note
+
+This repository and its contents are AI-assisted.
 
 ## License
 
